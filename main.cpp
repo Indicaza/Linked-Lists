@@ -192,32 +192,30 @@ public:
 
 
 
-int main()
-{
+int main() {
+
     vector<int> vector1;
     vector<int> vector2;
 
-    for(int i = 0; i < 20; i++)
-    {
+    for(int i = 0; i < 20; i++) {
         vector1.push_back(rand() % 100);
     }
 
-    for(int i = 0; i < 15; i++)
-    {
+    for(int i = 0; i < 15; i++) {
         vector2.push_back(rand() % 100);
     }
 
-    LinkedList l;
+    LinkedList linkedList;
 
-    LinkedList::node *head1 = l.createList(vector1);
-    LinkedList::node *head2 = l.createList(vector2);
+    LinkedList::node *head1 = linkedList.createList(vector1);
+    LinkedList::node *head2 = linkedList.createList(vector2);
 
-    head1 = l.sortList(head1);
-    head2 = l.sortList(head2);
+    head1 = linkedList.sortList(head1);
+    head2 = linkedList.sortList(head2);
 
-    LinkedList::node *head3 = l.mergeList(head1, head2);
-    head3 = l.sortList(head3);
-    l.createOutput(head3);
+    LinkedList::node *head3 = linkedList.mergeList(head1, head2);
+    head3 = linkedList.sortList(head3);
+    linkedList.createOutput(head3);
 
 
     return 0;
