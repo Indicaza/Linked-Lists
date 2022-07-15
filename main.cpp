@@ -147,7 +147,27 @@ public:
     }
 
 
-    // function to print the sum of a linked list
+    // function to remove duplicates from a linked list
+    node *removeDuplicates(node *head) {
+        node *temp = head;
+        node *temp2 = head;
+        while(temp != NULL) {
+            temp2 = temp->next;
+            while(temp2 != NULL) {
+                if(temp->data == temp2->data) {
+                    temp->next = temp2->next;
+                    temp2 = temp->next;
+                } else {
+                    temp2 = temp2->next;
+                }
+            }
+            temp = temp->next;
+        }
+        return head;
+    }
+
+
+    // function to return the sum of a linked list
     int sumList(node *head) {
         int sum = 0;
         node *temp = head;
@@ -159,15 +179,18 @@ public:
     }
 
 
-    // function to print the average of a linked list
+
+    // function to return the average of a linked list
     double averageList(node *head) {
         int sum = 0;
+        int count = 0;
         node *temp = head;
         while(temp != NULL) {
             sum += temp->data;
+            count++;
             temp = temp->next;
         }
-        return (double)sum / (double)head->data;
+        return (double)sum / count;
     }
 
 
@@ -215,6 +238,7 @@ int main() {
 
     LinkedList::node *head3 = linkedList.mergeList(head1, head2);
     head3 = linkedList.sortList(head3);
+    head3 = linkedList.removeDuplicates(head3);
     linkedList.createOutput(head3);
 
 
